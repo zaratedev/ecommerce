@@ -10,6 +10,6 @@ class Producto extends Model
   protected $table = 'producto';
 
   protected $fillable = [
-      'name', 'email', 'password',
+      'user_id','title', 'description', 'pricing',
   ];
 }
