@@ -14,7 +14,8 @@ class ProductoController extends Controller
 
   public function create()
   {
-    return view('producto.create');
+    $producto = new Producto;
+    return view('producto.create', compact('producto'));
   }
 
   public function store(Request $request)
@@ -29,7 +30,41 @@ class ProductoController extends Controller
     if ($producto->save()) {
       return redirect("/productos");
     }else {
-      return view("producto.create");
+      return view("producto.create",compact('producto'));
     }
+  }
+
+  public function edit($id)
+  {
+    $producto = Producto::find($id);
+    return view('producto.edit', compact('producto'));
+  }
+
+  public function update(Request $request, $id)
+  {
+    $producto = Producto::find($id);
+
+    $producto->title = $request->title;
+    $producto->description = $request->description;
+    $producto->pricing = $request->pricing;
+    $producto->user_id = \Auth::user()->id;
+
+    if ($producto->save()) {
+      return redirect("/productos");
+    }else {
+      return view("producto.edit",compact('producto'));
+    }
+  }
+
+  public function destroy($id) {
+    Producto::destroy($id);
+    return redirect('/productos');
+  }
+
+  public function show($id)
+  {
+    $producto = Producto::find($id);
+
+    return view('producto.show',compact('producto'));
   }
 }

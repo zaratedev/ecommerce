@@ -9,10 +9,16 @@ body{
   background-color: rgb(219, 219, 219);
 }
 
+.no-margin{
+  margin: 0px;
+}
 .big-padding{
   padding: 30px;
 }
 
+.no-padding{
+  padding: 0px;
+}
 .blue-grey{
   background-color: #37474f;
 }
@@ -33,4 +39,36 @@ body{
   bottom: 2em;
   right: 2em;
   z-index: 100;
+}
+
+.red-text{
+  color:rgb(255, 8, 0);
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.no-transform{
+  text-transform: none;
+}
+
+.absolute{
+  position: absolute;
+}
+.product{
+  width: 600px;
+  max-width: 100%;
+  padding: 1em;
+  position: relative;
+
+  h1{
+    padding-bottom: 10px;
+    border-bottom: solid 1px;
+  }
+
+  .actions{
+    right: 1em;
+    top: 10px;
+  }
 }
