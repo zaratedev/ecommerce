@@ -8,7 +8,6 @@ class MainController extends Controller
 {
     public function home()
     {
-      $user = "Jonathan";
-      return view('main.home',compact('user'));
+      return view('main.home');
     }
 }
