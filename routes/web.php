@@ -12,6 +12,7 @@
 */
 
 Route::get('/','MainController@home');
+Route::get('/carrito','ShoppingCartsController@index');
 
 Auth::routes();
 

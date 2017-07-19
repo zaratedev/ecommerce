@@ -23,7 +23,7 @@ class ShoppingCartProvider extends ServiceProvider
 
         \Session::put("shopping_cart_id",$shopping_cart->id);
 
-        $view->with("shopping_cart",$shopping_cart);
+        $view->with("productoCount",$shopping_cart->productosSize());
       });
     }
 
