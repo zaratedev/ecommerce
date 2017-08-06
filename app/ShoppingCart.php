@@ -28,6 +28,10 @@ class ShoppingCart extends Model
   {
     return $this->productos()->sum('pricing');
   }
+  public function totalUSD()
+  {
+    return $this->productos()->sum('pricing') / 100;
+  }
   public static function findOrCreateBySessionID($shopping_cart_id)
   {
     if ($shopping_cart_id) {

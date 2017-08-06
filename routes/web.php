@@ -13,7 +13,7 @@
 
 Route::get('/','MainController@home');
 Route::get('/carrito','ShoppingCartsController@index');
-
+Route::get('/payments/store','PaymentsController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
