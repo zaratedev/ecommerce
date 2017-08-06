@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PayPal;
 use App\ShoppingCart;
-
+use App\Order;
 class PaymentsController extends Controller
 {
     public function store(Request $request)
@@ -16,7 +16,11 @@ class PaymentsController extends Controller
 
       $paypal = new PayPal($shopping_cart);
 
-      dd($paypal->execute($request->paymentId, $request->PayerID));
-
+      $response = $paypal->execute($request->paymentId, $request->PayerID);
+      if ($response->state == 'approved') {
+        $order = Order::createFormPayPalResponse($response, $shopping_cart);
+        $shopping_cart->approve();
+      }
+      return view("shopping_carts.completed",compact('shopping_cart','order'));
     }
 }
