@@ -22,4 +22,12 @@ class ShoppingCartsController extends Controller
 
     //return view('shopping_carts.index',compact('productos','total'));
   }
+
+  public function show($id)
+  {
+    $shopping_cart = ShoppingCart::where('customid',$id)->first();
+    $order = $shopping_cart->order();
+
+    return view("shopping_carts.completed",compact('shopping_cart','order'));
+  }
 }

@@ -10,7 +10,7 @@
       <h3>Tu pago fue procesado <span class="{{$order->status}}">{{$order->status}}</span></h3>
       <p>Corrobora los detalles de tu envio</p>
 
-      <div class="row">
+      <div class="row large-padding">
         <div class="col-xs-6">
           Correo
         </div>
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row large-padding">
         <div class="col-xs-6">
           Dirección
         </div>
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row large-padding">
         <div class="col-xs-6">
           Codigo Postal
         </div>
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row large-padding">
         <div class="col-xs-6">
           Ciudad
         </div>
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row large-padding">
         <div class="col-xs-6">
           Estado y pais
         </div>
@@ -56,7 +56,7 @@
       </div>
 
       <div class="text-center">
-        <a href="#">Link permanente de la compra</a>
+        <a href="{{url('/compras/'.$shopping_cart->customid)}}">Link permanente de la compra</a>
       </div>
     </div>
 

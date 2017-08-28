@@ -41,4 +41,29 @@ class Order extends Model
   {
     return "$this->line1 $this->line2";
   }
+
+  public function scopeLatest($query)
+  {
+    return $query->OrderID()->monthly();
+  }
+
+  public function scopeOrderID($query)
+  {
+    return $query->orderBy('id','desc');
+  }
+
+  public function scopeMonthly($query)
+  {
+    return $query->whereMonth('created_at','=',date('m'));
+  }
+
+  public static function totalMonth()
+  {
+    return Order::monthly()->sum('total') / 100;
+  }
+
+  public static function totalMonthCount()
+  {
+    return Order::monthly()->count();
+  }
 }

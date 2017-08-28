@@ -12,6 +12,9 @@ body{
 .no-margin{
   margin: 0px;
 }
+.top-space{
+  margin-top: 1em;
+}
 .big-padding{
   padding: 30px;
 }
@@ -75,4 +78,20 @@ body{
     right: 1em;
     top: 10px;
   }
+}
+
+.sale-data{
+  padding: 1em;
+  text-align: center;
+  border-right: solid 1px #222;
+  span{
+    display: block;
+    font-size: 2.2em;
+    color: #3f51b5;
+  }
+}
+//status
+
+.creado{
+  background-color: #d4e157;
 }
