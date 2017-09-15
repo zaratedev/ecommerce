@@ -14,4 +14,17 @@ class OrdersController extends Controller
     $totalMonthCount = Order::totalMonthCount();
     return view('orders.index',compact('orders','totalMonth','totalMonthCount'));
   }
+
+  public function update(Request $request, $id)
+  {
+    $order = Order::find($id);
+
+    $field = $request->name;
+
+    $order->$field = $request->value;
+
+    $order->update();
+
+    return $order->$field;
+  }
 }

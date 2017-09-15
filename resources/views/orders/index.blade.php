@@ -38,8 +38,10 @@
                 <td>{{$order->id}}</td>
                 <td>{{$order->recipient_name}}</td>
                 <td>{{$order->address()}}</td>
-                <td>{{$order->guide_number}}</td>
-                <td>{{$order->status}}</td>
+                <td>
+                  <a href="#" data-type="text" data-pk="{{$order->id}}" data-url="{{url('/orders/'.$order->id)}}" data-title="Número de guia" data-value="{{$order->guide_number}}" class="set-guide-number" data-name="guide_number"></a>
+                </td>
+                <td><a href="#" data-type="select" data-pk="{{$order->id}}" data-url="{{url('/orders/'.$order->id)}}" data-title="Estado" data-value="{{$order->status}}" class="select-status" data-name="status"></a></td>
                 <td>{{$order->created_at}}</td>
                 <td>Acciones</td>
               </tr>
@@ -49,4 +51,9 @@
       </div>
     </div>
   </div>
+@endsection
+@section('js')
+  <link href="{{asset('/plugins/bootstrap-editable/css/bootstrap-editable.css')}}" rel="stylesheet"/>
+  <script src="{{asset('/plugins/bootstrap-editable/js/bootstrap-editable.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/orders.js')}}"></script>
 @endsection
