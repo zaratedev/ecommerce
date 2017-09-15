@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Producto;
 class ProductoController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth', ['except' => 'show']);
+  }
+
   public function index()
   {
     $productos = Producto::all();

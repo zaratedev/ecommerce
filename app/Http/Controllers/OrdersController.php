@@ -7,6 +7,12 @@ use App\Order;
 
 class OrdersController extends Controller
 {
+
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+
   public function index()
   {
     $orders = Order::latest()->get();
