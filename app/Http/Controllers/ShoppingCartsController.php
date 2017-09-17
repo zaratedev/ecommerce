@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ShoppingCart;
 use App\PayPal;
+
 class ShoppingCartsController extends Controller
 {
   public function __construct()
@@ -15,9 +16,9 @@ class ShoppingCartsController extends Controller
   public function index(Request $request)
   {
     $shopping_cart = $request->shopping_cart;
-    #$paypal = new PayPal($shopping_cart);
-    #$payment = $paypal->generate();
-    #return redirect($payment->getApprovalLink());
+    $paypal = new PayPal($shopping_cart);
+    $payment = $paypal->generate();
+    return redirect($payment->getApprovalLink());
     $productos = $shopping_cart->productos()->get();
 
     $total = $shopping_cart->total();
