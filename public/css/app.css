@@ -1,3 +1,8 @@
+.circle-shopping-cart {
+  background-color: #232980;
+  border-radius: 50%;
+  padding: 1em 1em; }
+
 .navbar {
   margin-bottom: 0px; }
 
@@ -72,3 +77,9 @@ body {
 
 .creado {
   background-color: #d4e157; }
+
+.producto-avatar {
+  max-width: 100%; }
+
+.productos-container .product {
+  margin-top: 1em; }

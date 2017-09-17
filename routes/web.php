@@ -13,6 +13,7 @@
 
 Route::get('/','MainController@home');
 Route::get('/carrito','ShoppingCartsController@index');
+Route::post('/carrito','ShoppingCartsController@checkout');
 Route::get('/payments/store','PaymentsController@store');
 Auth::routes();
 
@@ -29,3 +30,16 @@ Route::resource('compras','ShoppingCartsController',['only' => ['show']]);
 Route::resource('orders','OrdersController', [
   'only' => ['index', 'update']
 ]);
+
+Route::get('producto/images/{filename}',function($filename){
+  $path = storage_path("app/images/$filename");
+
+  if (!\File::exists($path)) abort(404);
+
+  $file = \File::get($path);
+  $type = \File::mimeType($path);
+
+  $response = Response::make($file,200);
+  $response->header("Content-Type",$type);
+  return $response;
+});
