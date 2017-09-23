@@ -53,7 +53,7 @@
   </div>
 @endsection
 @section('js')
-  <link href="{{asset('/plugins/bootstrap-editable/css/bootstrap-editable.css')}}" rel="stylesheet"/>
-  <script src="{{asset('/plugins/bootstrap-editable/js/bootstrap-editable.min.js')}}"></script>
+  <link href="{{asset('plugins/bootstrap-editable/css/bootstrap-editable.css')}}" rel="stylesheet"/>
+  <script src="{{asset('plugins/bootstrap-editable/js/bootstrap-editable.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/orders.js')}}"></script>
 @endsection
